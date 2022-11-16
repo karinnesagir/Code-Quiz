@@ -21,6 +21,7 @@ var highScoreInitials = document.querySelector("#highScoreInitials");
 var highScoreScore = document.querySelector("#highScoreScore");
 var button = document.getElementsByClassName("button"); 
 var result = document.querySelector("#result");
+var lastResult = document.querySelector("#lastResult");
 
 var timeLeft ;
 var score ;
@@ -144,7 +145,12 @@ function correct(){
     result.style.display = "flex";
     var correctOrWrong = document.createElement("div");  
     correctOrWrong.textContent = "Correct!" 
-    result.appendChild(correctOrWrong);
+
+    if (currentIndexQuestion == 4){
+        lastResult.appendChild(correctOrWrong); 
+    }else{
+        result.appendChild(correctOrWrong); 
+    }
 }
 
 function wrong(){
@@ -156,7 +162,12 @@ function wrong(){
     result.style.display = "flex";
     var correctOrWrong = document.createElement("div");  
     correctOrWrong.textContent = "Wrong!" 
-    result.appendChild(correctOrWrong);   
+
+    if (currentIndexQuestion == 4){
+        lastResult.appendChild(correctOrWrong); 
+    }else{
+        result.appendChild(correctOrWrong); 
+    }
 }
 
 
@@ -165,7 +176,6 @@ function showScore(){
     quizPage.style.display = "none";
     scorePage.style.display = "flex";
     clearInterval(timeInterval);
-    // inputIntitials.value = "";
     score = timeLeft;
     finalScore.textContent = "Your final score is " + score + ".";
     submitButton.addEventListener("click", highScore)
