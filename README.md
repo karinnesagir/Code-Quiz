@@ -20,7 +20,7 @@ Work individually to implement the following user story:
 
 The following link presents the deployed application:
 
-[Live website]()    
+[Live website](https://karinnesagir.github.io/Code-Quiz/)    
 
 ## Assets
 
