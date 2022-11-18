@@ -211,6 +211,12 @@ function generateHighScores(){
     highScoreInitials.textContent = "";
     highScoreScore.textContent = "";
     var highscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
+
+    // setting highscores into a descending order
+    if(highscores.length){
+       highscores.sort(sortHighscores);
+    }
+
     for (i = 0; i < highscores.length; i++){
         var newName = document.createElement("li");
         var newScore = document.createElement("li");
@@ -221,6 +227,9 @@ function generateHighScores(){
     }
 }
 
+function sortHighscores(a, b){
+    return b.score - a.score
+}
 
 function clearScores(){
     window.localStorage.clear();
